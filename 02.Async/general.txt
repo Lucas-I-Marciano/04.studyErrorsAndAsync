@@ -1,0 +1,16 @@
+Sincronia está na ideia de um código de cada vez, mas imagina você na Web baixando um arquivo e o navegador inteiro trava porque tem que esperar essa instrução finalizar
+
+Quando tenho funções assíncronas, posso querer que uma variável receba o "return" dessa função, o que não faz sentido ter o meu código linear, com isso uso o callback
+
+Callback é uma função que é usada como parâmetro de outra função para eu conseguir manter a sincronia entre os itens desincronizados.
+- Exemplo: Quero executar uma função que printa o número 2 e depois a mensagem "procedimento concluido"
+-- Eu poderia fazer isso com uma função que printa duas vezes uma mensagem, mas eu posso também usar uma callbak, ou seja definir uma função que o parâmetro seja uma função callback. 
+-- function myFunction(callback){
+    console.log('2')
+}
+-- Con isso eu minha função escreverá 2, mas para eu escrever a segunda mensagem eu posso passar a função "console.log" como callback 
+-- function myFunction(callback){
+    console.log('2')
+    callback("procedimento concluido")
+}
+myFunction(console.log)
