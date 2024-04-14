@@ -1,6 +1,6 @@
 function calculateSquareRoot(radicand) {
   if (radicand < 0) {
-    throw "Radicand needs to be positive";
+    throw new Error("Radicand needs to be positive");
   }
   return radicand ** (1 / 2);
 }
@@ -33,7 +33,10 @@ function onCalculateButtonClick() {
       firstSide <= 0 ||
       secondSide <= 0
     ) {
-      throw "Entredas Inválidas. Digite valores numéricos e positivos";
+      // With new Error the error came with the source of the error, the Stack Trace
+      throw new Error(
+        "Entredas Inválidas. Digite valores numéricos e positivos"
+      );
     }
 
     answerDiv.classList.remove("hidden-element");
@@ -46,6 +49,8 @@ function onCalculateButtonClick() {
       <div class="left-point"></div>`;
   } catch (error) {
     console.log(error);
+  } finally {
+    console.log("This block will execute with error or success");
   }
 }
 
